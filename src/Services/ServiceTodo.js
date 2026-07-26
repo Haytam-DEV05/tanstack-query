@@ -6,7 +6,7 @@ export const getAll = async () => {
 }
 
 export const createTodo = async todo => {
-  const res = await api.post('/todo', todo)
+  const res = await api.post('/todos', todo)
 }
 
 export const updateTodo = async () => {}

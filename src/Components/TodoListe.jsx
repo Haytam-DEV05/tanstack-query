@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAll } from "../Services/ServiceTodo";
+import { NavLink, useNavigate } from "react-router";
 
 export default function TodoListe() {
   const [todos, setTodos] = useState([]);
@@ -19,6 +20,9 @@ export default function TodoListe() {
     })();
   }, []);
 
+  const handleBtnUpdate = (id) => {};
+  const handleBtnDelete = (id) => {};
+
   if (isLoading) {
     return <h3>Loading ....</h3>;
   }
@@ -26,7 +30,6 @@ export default function TodoListe() {
   return (
     <div className="max-w-4xl mx-auto p-6">
       <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-        {/* Header Section */}
         <div className="px-6 py-5 border-b border-slate-100 flex items-center justify-between">
           <h1 className="text-xl font-bold text-slate-800 tracking-tight">
             Todo List
@@ -34,6 +37,7 @@ export default function TodoListe() {
           <span className="text-xs font-semibold px-3 py-1 bg-slate-100 text-slate-600 rounded-full">
             {todos.length} {todos.length === 1 ? "Task" : "Tasks"}
           </span>
+          <NavLink to="/todo/create">Create Todo</NavLink>
         </div>
 
         {/* Table Section */}
@@ -49,6 +53,9 @@ export default function TodoListe() {
                 </th>
                 <th scope="col" className="px-6 py-3.5 font-semibold">
                   Status
+                </th>
+                <th scope="col" className="px-6 py-3.5 font-semibold">
+                  Actions
                 </th>
               </tr>
             </thead>
@@ -76,6 +83,14 @@ export default function TodoListe() {
                         Pending
                       </span>
                     )}
+                  </td>
+                  <td>
+                    <button onClick={() => handleBtnUpdate(ele.id)}>
+                      update
+                    </button>
+                    <button onClick={() => handleBtnDelete(ele.id)}>
+                      update
+                    </button>
                   </td>
                 </tr>
               ))}

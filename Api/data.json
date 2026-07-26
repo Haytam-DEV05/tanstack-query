@@ -1,19 +1,32 @@
 {
   "todos": [
     {
-      "id": 1,
+      "id": "1",
       "title": "PHP",
       "completed": false
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "React js",
       "completed": true
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "JS",
       "completed": false
+    },
+    {
+      "id": "t8zSzY79JR8",
+      "title": "hello",
+      "description": "ok",
+      "completed": false
+    },
+    {
+      "id": "je-VUgOf9VI",
+      "title": "ok",
+      "description": "aaaaaa",
+      "completed": false
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

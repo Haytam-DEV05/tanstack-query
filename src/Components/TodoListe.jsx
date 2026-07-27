@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAll, deleteTodo } from "../Services/ServiceTodo";
 import { NavLink, useNavigate } from "react-router";
+import TodoSkeleton from "./TodoSkeleton";
 
 export default function TodoListe() {
   const [todos, setTodos] = useState([]);
@@ -21,12 +22,11 @@ export default function TodoListe() {
   }, []);
 
   const handleBtnDelete = async (id) => {
-    console.log(id);
     await deleteTodo(id);
   };
 
   if (isLoading) {
-    return <h3>Loading ....</h3>;
+    return <TodoSkeleton />;
   }
 
   return (
@@ -88,7 +88,6 @@ export default function TodoListe() {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                     <div className="flex items-center gap-2">
-                      {/* Update Button */}
                       <NavLink to={`/todo/${ele.id}/update`}>
                         <button
                           type="button"
@@ -111,7 +110,6 @@ export default function TodoListe() {
                         </button>
                       </NavLink>
 
-                      {/* Delete Button */}
                       <button
                         type="button"
                         onClick={() => handleBtnDelete(ele.id)}

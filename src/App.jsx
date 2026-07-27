@@ -2,11 +2,13 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router";
 import TodoListe from "./Components/TodoListe";
 import TodoCreate from "./Components/TodoCreate";
 import TodoUpdate from "./Components/TodoUpdate";
+import Navbar from "./Components/Navbar";
 
 const App = () => {
   const linkes = createBrowserRouter([
     {
       path: "/",
+      element: <Layout />,
       children: [
         {
           index: true,
@@ -27,7 +29,10 @@ const App = () => {
   function Layout() {
     return (
       <>
-        <Outlet />
+        <Navbar />
+        <main>
+          <Outlet />
+        </main>
       </>
     );
   }
